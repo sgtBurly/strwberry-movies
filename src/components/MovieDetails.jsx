@@ -5,8 +5,6 @@ import Style from "../styles/moviesList.module.css";
 import Card from "./Card";
 
 const MovieDetails = ({ id }) => {
-  const imagePrefix = `https://image.tmdb.org/t/p/w500`;
-
   const { data: movie } = useMoviesById(id);
   const { data: credits } = useMovieCredits(id);
 
@@ -21,7 +19,6 @@ const MovieDetails = ({ id }) => {
       <div className={Style.listWrapper}>
         {credits &&
           credits.cast.map((person, i) => {
-            console.log("image path: ", person.profile_path);
             return (
               <Card
                 key={i}

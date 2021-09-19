@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../index.css";
 
 // This component takes background image, title (eg name of movie, name of actor), type of info to render (eg movie, actor)
-const Card = ({ background, title, description, type, id }) => {
+const Card = ({ background, title, type, id }) => {
   const imagePrefix = `https://image.tmdb.org/t/p/w500`;
 
   return (
