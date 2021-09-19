@@ -1,0 +1,8 @@
+Home page - innehåller karusell med genre, på bio och top rated
+
+Karousel - en komponent som tar emot props, typ description/image/title
+
+React query används för att hantera async data.
+
+Fråga till Johan: Varför behövs det en anonym funktion och return statement 
+när man ska skicka med props till get-funktionen?
