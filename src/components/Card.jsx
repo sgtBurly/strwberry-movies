@@ -1,25 +1,31 @@
-import React from "react";
-import Style from "../styles/card.module.css";
+import React, {forwardRef} from "react";
+import styles from "../styles/components/card.module.scss";
 import { Link } from "react-router-dom";
-import "../index.css";
 
-// This component takes background image, title (eg name of movie, name of actor), type of info to render (eg movie, actor)
-const Card = ({ background, title, type, id }) => {
+// This component takes background image, title (eg name of movie, name of actor), type of content (eg movie, actor) and renders  
+// this information in the format of a card. The component uses the forwardRef method which enables me to reference the DOM element
+// in the parent components as needed.
+const Card = forwardRef(({ background, title, type, id }, ref) => {
   const imagePrefix = `https://image.tmdb.org/t/p/w500`;
 
   return (
-    <Link to={`/details/${type}/${id}`} className={Style.card}>
-      <div
-        className={Style.imageWrapper}
-        style={{
-          backgroundImage: `url(${imagePrefix}${background})`,
-        }}
-      ></div>
-      <div className={Style.titleWrapper}>
-        <h3 className={Style.title}>{title}</h3>
-      </div>
+    <Link to={`/details/${type}/${id}`} className={styles.card}
+      ref={ref}
+    >
+      <figure
+        className={styles.card__thumb}
+      >
+        <img 
+          className={styles.card__image} 
+          src={`${imagePrefix}${background}`} 
+          alt={`"${title}" poster`} 
+        />
+        <figcaption className={styles.card__caption}>
+          <h4>{title}</h4>
+        </figcaption>
+      </figure>
     </Link>
   );
-};
+});
 
 export default Card;

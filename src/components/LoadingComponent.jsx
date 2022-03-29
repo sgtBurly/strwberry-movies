@@ -1,11 +1,13 @@
 import React from "react";
-import { useIsFetching } from "react-query";
 import { BallSpinner } from "react-spinners-kit";
+import { useIsFetching } from 'react-query'
 
 const LoadingComponent = () => {
-  const isFetching = useIsFetching();
+  const isFetching = useIsFetching()
   return (
-    <div className="loadingContainer">{isFetching && <BallSpinner />}</div>
+    <section className="loading-component">
+      <BallSpinner />
+    </section>
   );
 };
 

@@ -1,0 +1,61 @@
+@use "../global/layout.scss";
+@use "../global/breakpoints.scss";
+@use "../global/colors.scss";
+@use "../global/box-shadow.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@500&family=Lexend:wght@300&display=swap');
+
+
+.actorPage{
+  @extend %page;
+
+  &__content {
+    @extend %content;
+  }
+
+  &__hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: .5rem;  
+  }
+
+  &__image,
+  &__details {
+    margin: .25rem;
+    max-width: calc(100%/2 - 2rem);
+    @include breakpoints.breakpoint(tablet-landscape) {
+      max-width: calc(100%/2 - 4rem);
+    }
+  }
+
+  &__image{
+    height: auto;
+    box-shadow: box-shadow.$default-box-shadow;
+    border-radius: 5px;
+  }
+  
+  &__details {
+    background-color: map-get(colors.$colors, soft-white);
+    box-shadow: box-shadow.$default-box-shadow;
+    border-radius: 5px;
+    padding: 1rem;  
+    
+  }
+
+  &__name {
+    padding: .25rem;
+  }
+
+  &__about {
+    font-family: 'josefin slab';
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: map-get(colors.$colors, soft-white);
+    box-shadow: box-shadow.$default-box-shadow;
+    border-radius: 5px;
+  }
+}

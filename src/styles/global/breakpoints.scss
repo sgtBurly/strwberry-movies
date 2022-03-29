@@ -1,0 +1,30 @@
+$breakpoints: (
+  mobile: 434px,
+  tablet: 435px,
+  tablet-landscape: 768px,
+  desktop: 992px,
+  desktop-large: 1200px,
+);
+
+@mixin breakpoint($class) {
+  @if $class == tablet {
+    @media (min-width: map-get($breakpoints, tablet)) { @content; }
+  }
+ 
+  @else if $class == tablet-landscape {
+    @media (min-width: map-get($breakpoints, tablet-landscape)) { @content; }
+  }
+  
+  @else if $class == desktop {
+    @media (min-width: map-get($breakpoints, desktop)) { @content; }
+  }
+ 
+  @else if $class == desktop-large {
+    @media (min-width: map-get($breakpoints, desktop-large)) { @content; }
+  }
+ 
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}
+

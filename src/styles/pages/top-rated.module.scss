@@ -1,0 +1,8 @@
+@use "../global/layout.scss";
+
+.topRated{
+  @extend %page;
+  .topRated__content {
+    @extend %content
+  }
+}

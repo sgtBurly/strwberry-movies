@@ -1,0 +1,8 @@
+@use "../global/layout.scss";
+
+.home{
+  @extend %page;
+  .home__content {
+    @extend %content;
+  }
+}

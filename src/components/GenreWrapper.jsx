@@ -1,37 +1,37 @@
-import Style from "../styles/moviesList.module.css";
-import Card from "./Card";
+import "../styles/components/grid.module.scss";
 import useChangePage from "../hooks/useChangePage";
 import { useMoviesByGenre } from "../hooks/useMoviesByGenre";
+import Carousel from "./Carousel";
 
-const GenreWrapper = ({ title, genreId }) => {
-  const { page, nextPage, prevPage } = useChangePage();
-  const {
-    data: moviesArray,
-    isSuccess,
-    error,
-  } = useMoviesByGenre(genreId, page);
+const GenreWrapper = ({ genre }) => {
+	// This component is rendered in it's parent component for each genre available through TMDB. This is needed because
+	// react hooks need to be called at top level and can't be nested in a loop (I tried, oh have I tried). So the looping
+	// occurs in the parent component, this child component only needs to deal with one genre, and all is happy and well.
+	const { page } = useChangePage();
 
-  return (
-    <div className={Style.listContainer}>
-      {title && <h1>{title}</h1>}
-      <div className={Style.listWrapper}>
-        {isSuccess &&
-          moviesArray?.results.map((movie, i) => (
-            <Card
-              key={i}
-              title={movie.title}
-              description={movie.overview}
-              background={movie.backdrop_path}
-              id={movie.id}
-              type="Movies"
-            />
-          ))}
-      </div>
-      <button className={Style.button} onClick={() => nextPage()}>
-        Load more movies
-      </button>
-    </div>
-  );
+	const { data, isSuccess } = useMoviesByGenre(genre.id, page);
+
+	const movies = data?.results.map((movie) => {
+		return {
+			title: movie.title,
+			background: movie.poster_path,
+			id: movie.id,
+		};
+	});
+
+	return (
+		<>
+			{movies && isSuccess && (
+				<>
+						<Carousel
+							list={movies}
+							cardType={"Movie"}
+							path={`/genre/${genre.name}/${genre.id}/`}
+						/>
+				</>
+			)}
+		</>
+	);
 };
 
 export default GenreWrapper;

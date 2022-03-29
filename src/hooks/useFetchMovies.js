@@ -5,5 +5,5 @@ import { getMovieList } from "../MoviesAPI"
 
 // Available options for "listType": popular, top_rated, latest
 export const useFetchMovies = (listType, page) => {
-    return useQuery(["Movielist", page, listType], () => getMovieList(listType, page))
+    return useQuery([listType, page, listType], () => getMovieList(listType, page))
 }

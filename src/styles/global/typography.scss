@@ -1,0 +1,65 @@
+@use "../global/colors.scss";
+@use "./breakpoints.scss";
+
+$heading: (
+  heading-small: 1.15rem,
+  heading-regular: 1.25rem,
+  heading-large: 1.5rem,
+  heading-x-large: 1.75rem,
+  heading-hero: 2.5rem,
+  );
+
+$text: (
+  text-small: 1rem,
+  text-regular: 1.15rem,
+  text-large: 1.3rem,
+  text-x-large: 1.45rem,
+);
+
+.heading {
+  
+  &--small {
+    line-height: 1.75rem;
+    font-size: map-get($heading, heading-small);
+  }
+  
+  &--regular {
+    line-height: 2.25rem;
+    font-size: map-get($heading, heading-regular);
+  }
+  
+  &--large {
+    line-height: 2.75rem;
+    font-size: map-get($heading, heading-large);
+  }
+
+  &--x-large {
+    line-height: 1.75rem;
+    font-size: map-get($heading, heading-x-large);
+  }
+  
+  &--hero {
+    line-height: 3rem;
+    font-size: map-get($heading, heading-hero);
+  }
+
+}
+
+.text {
+  &--small {    
+    line-height: 1.25rem;
+    font-size: map-get($text, text-small);
+  }
+  &--regular {    
+    line-height: 1.5rem;
+    font-size: map-get($text, text-regular);
+  }
+  &--large {
+    line-height: 1.75rem;
+    font-size: map-get($text, text-large);
+  }
+  &--x-large {
+    line-height: 2rem;
+    font-size: map-get($text, text-x-large);
+  }
+}

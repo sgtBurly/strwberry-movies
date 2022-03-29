@@ -1,0 +1,8 @@
+@use "../global/layout.scss";
+
+.popular{
+  @extend %page;
+  .popular__content {
+    @extend %content
+  }
+}

@@ -1,0 +1,52 @@
+@use "../global/breakpoints.scss";
+@use "../global/box-shadow.scss";
+@use "../global/layout.scss";
+
+// @mixin cardGrid(){
+//   display: grid;
+//   padding: .5rem;
+//   grid-template-columns: repeat(4, 1fr);
+//   border-radius: 5px;
+//   gap: .25rem;
+//   box-shadow: box-shadow.$default-box-shadow;
+
+//   @include breakpoints.breakpoint(tablet){
+//     grid-template-columns: repeat(4, 1fr);
+//   }
+
+//   @include breakpoints.breakpoint(tablet-landscape){
+//     max-width: map-get(layout.$maxWidths, regular);
+//     padding: 2rem;
+//     gap: .5rem;
+//   }
+  
+//   @include breakpoints.breakpoint(desktop-large){
+//     grid-template-columns: repeat(4, 1fr);
+//     width: map-get(layout.$maxWidths, x-large);
+//   }
+// }
+
+.grid {
+  display: grid;
+  padding: .5rem;
+  grid-template-columns: repeat(2, 1fr);
+  border-radius: 5px;
+  gap: .25rem;
+  box-shadow: box-shadow.$default-box-shadow;
+
+  @include breakpoints.breakpoint(tablet){
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  @include breakpoints.breakpoint(tablet-landscape){
+    grid-template-columns: repeat(4, 1fr);
+    max-width: map-get(layout.$maxWidths, regular);
+    padding: 2rem;
+    gap: .5rem;
+  }
+  
+  @include breakpoints.breakpoint(desktop-large){
+    grid-template-columns: repeat(4, 1fr);
+    max-width: map-get(layout.$maxWidths, x-large);
+  }
+}

@@ -1,14 +1,14 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 
 const useChangePage = () => {
 const [page, setPage] = useState(1)
 
     const nextPage = () => {
-        return setPage((currPage) => currPage + 1)
+        return setPage(old => old + 1)
     }
 
     const prevPage = () => {
-        return setPage((currPage) => Math.max(currPage - 1, 0))
+        return setPage(old => Math.max(old - 1, 0))
     }
 
     return {

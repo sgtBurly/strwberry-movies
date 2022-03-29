@@ -1,0 +1,98 @@
+@use "../global/layout.scss";
+@use "../global/colors.scss";
+@use "../global/box-shadow.scss";
+@use "../global/breakpoints.scss";
+
+.moviePage{
+  @extend %page;
+
+  &__content {
+    @extend %content;
+  }
+
+  &__hero {
+    width: 100%;
+  }
+  
+  &__image{
+    width: 100%;
+    box-shadow: box-shadow.$default-box-shadow;
+    border-radius: 5px;
+    object-fit: contain;
+  }
+  
+  &__title {
+    margin-top: 1.25rem;
+  }
+  
+  &__details {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0 .5rem 0;
+    @include breakpoints.breakpoint(tablet-landscape) {
+      margin: 2.5rem 0;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  
+  &__info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: .5rem .25rem;
+    
+    @include breakpoints.breakpoint(tablet-landscape) {
+      max-width: 50%;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
+  
+  &__genres{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  &__runtime {
+    margin: .5rem .25rem;
+    padding: .5rem 0;
+  }
+  
+  &__score{   
+    padding: .25rem; 
+    border: 1px solid map-get(colors.$colors, ebony);
+    border-radius: 5px;
+    background-color: map-get(colors.$colors, lemon);
+  }
+  
+  &__overview {
+    padding: 1rem;
+    margin: .5rem .25rem;
+    border: 2px solid map-get(colors.$colors, ebony);
+    border-radius: 5px;
+    background-color: map-get(colors.$colors, soft-white);
+    @include breakpoints.breakpoint(tablet-landscape) {
+      max-width: 50%;
+    }
+  }
+
+  &__cast,
+  &__similarMovies {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+    width: 100%;
+    max-width: map-get(layout.$maxWidths, regular);
+    @include breakpoints.breakpoint(tablet-landscape) {
+      margin: 2.5rem 0;
+    }
+  
+  }
+}
+

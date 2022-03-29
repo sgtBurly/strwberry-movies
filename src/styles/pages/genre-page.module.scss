@@ -1,0 +1,8 @@
+@use "../global/layout.scss";
+
+.genrePage {
+  @extend %page;
+  .genrePage__content {
+    @extend %content;
+  }
+}
