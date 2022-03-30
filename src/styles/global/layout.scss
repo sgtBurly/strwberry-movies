@@ -24,6 +24,7 @@ $maxWidths: (
 		max-width: map-get($maxWidths, regular);
 		margin-top: 2.5rem;
 	}
+	
 	@include breakpoints.breakpoint(desktop-large) {
 		max-width: map-get($maxWidths, x-large);
 	}

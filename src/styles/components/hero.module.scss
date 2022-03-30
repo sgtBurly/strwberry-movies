@@ -2,48 +2,29 @@
 @use "../global/breakpoints.scss";
 @use "../global/layout.scss";
 @use "../global/colors.scss";
+@use "../global/box-shadow.scss";
 
 .hero {
-  position: relative;
-  height: 50rem;
   width: 100%;
-  // display: flex;
-  // flex-direction: row;
-  // align-items: center;
-  // justify-content: center;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: 2rem;
   transition: all .7s ease-in-out;
-  // background: linear-gradient(22.5deg, #e7ddd2 50%, #bbc8ba 50%);
   
   @include breakpoints.breakpoint(tablet) {
-    width: map-get(layout.$maxWidths, regular);
+    max-width: map-get(layout.$maxWidths, regular);
   }
   
   @include breakpoints.breakpoint(desktop-large) {
-    width: map-get(layout.$maxWidths, x-large);
+    max-width: map-get(layout.$maxWidths, x-large);
   }
 
   &__image{
-    width: 50rem;
+    border-radius: 5px;
+    box-shadow: box-shadow.$default-box-shadow;
+    width: 100%;
+    height: auto;
   }
   
-  &__triangle {
-    position: absolute;
-    left: 0;
-    width: 50rem;
-    height: 50rem;
-    border-radius: 5px;
-    background-color: map-get(colors.$colors, lemon);
-    clip-path: polygon(0% 100%, 0% 0%, 50% 50%);
-    h1 {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      padding: 1rem;
-    }
-  }
-
 }
+

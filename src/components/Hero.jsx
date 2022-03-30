@@ -23,13 +23,10 @@ const Hero = () => {
 			{images && (
 				<header className={`${styles.hero} ${styles.hero}`}>
 					<img
-						className={styles.card__image}
+						className={styles.hero__image}
 						src={`${imagePrefix}${images[index]}`}
 						alt={` poster`}
 					/>
-          {/* <div className={styles.hero__triangle}>
-						<h1 className="heading heading__hero">strwbry Movie Database</h1>
-					</div> */}
 				</header>
 			)}
 		</>

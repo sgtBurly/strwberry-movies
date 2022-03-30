@@ -1,25 +1,29 @@
-@use './styles/global/colors.scss';
+@use "./styles/global/colors.scss";
 @use "./styles/global/breakpoints.scss";
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@500&family=Lexend:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@500&family=Lexend:wght@300&display=swap");
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-html {font-family: 'Lexend', 'sans-serif';
-font-size: 14px;
-@include breakpoints.breakpoint(tablet-landscape) {
-  font-size: 16px;
-}}
+html {
+	font-family: "Lexend", "sans-serif";
+	font-size: 14px;
+
+	@include breakpoints.breakpoint(tablet-landscape) {
+		font-size: 16px;
+	}
+}
+
 body {
-  background: linear-gradient(112.5deg, rgba(213,213,200,1) 50%, rgba(187,200,186,0) 50%);
+	color: map-get(colors.$colors, soft-white);
+	overflow-x: hidden;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 p,
@@ -30,7 +34,7 @@ h4,
 h5,
 h6,
 a {
-  color: map-get(colors.$colors, coal );
+	color: map-get(colors.$colors, coal);
 }
 
 h1,
@@ -39,5 +43,5 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'josefin slab';
+	font-family: "josefin slab";
 }
